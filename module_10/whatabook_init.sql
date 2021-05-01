@@ -17,6 +17,9 @@ DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS wishlist;
 DROP TABLE IF EXISTS user;
 
+/*
+    Create table(s)
+*/
 CREATE TABLE store (
     store_id    INT             NOT NULL    AUTO_INCREMENT,
     locale      VARCHAR(500)    NOT NULL,
@@ -55,67 +58,67 @@ CREATE TABLE wishlist (
     insert store record 
 */
 INSERT INTO store(locale)
-    VALUES('123 Street , Omaha, NE 68116');
+    VALUES('1000 Galvin Rd S, Bellevue, NE 68005');
 
 /*
     insert book records 
 */
 INSERT INTO book(book_name, author, details)
-    VALUES('The Return of the King', 'J.R.Tolkien', 'The third part of The Lord of the Rings');
+    VALUES('Ocean Prey', 'John Sandford', 'Remarkable new novel from #1 New York Times');
 
 INSERT INTO book(book_name, author, details)
-    VALUES('Everything I Never Told You', 'CELESTE NG');
+    VALUES('The Hill We Climb', 'Amanda Gorman', 'Foreword by Oprah Winfrey');
 
 INSERT INTO book(book_name, author, details)
-    VALUES('Is Everyone Hanging Out Without Me?', 'MINDY KALING');
+    VALUES('The Devil Hand', 'Jack Carr','New York Times bestselling author');
 
 INSERT INTO book(book_name, author)
-    VALUES('Are You There, Vodka', 'CHELSEA HANDLER');
+    VALUES('The Four Winds', 'Kristin Hannah');
 
 INSERT INTO book(book_name, author)
-    VALUES('THE CURIOUS INCIDENT OF THE DOG IN THE NIGHT-TIME', 'MARK HADDON');
+    VALUES('The Midnight Library', 'Matt Haig');
 
 INSERT INTO book(book_name, author)
-    VALUES('HOW TO WIN FRIENDS AND INFLUENCE PEOPLE', 'DALE CARNEGIE');
+    VALUES("The Red Book", 'James Patterson');
 
 INSERT INTO book(book_name, author)
-    VALUES('CLOUDY WITH A CHANCE OF MEATBALLS', 'JUDI BARRETT');
+    VALUES('The Good Sister', 'Sally Hepworth');
 
 INSERT INTO book(book_name, author)
-    VALUES('LOVE IN THE TIME OF CHOLERA', 'GABRIEL GARCÍA MÁRQUEZ');
+    VALUES('The Lion, the Witch, and the Wardrobe', 'C.S. Lewis');
 
 INSERT INTO book(book_name, author)
-    VALUES('THE DEVIL WEARS PRADA', 'JLAUREN WEISBERGER');
+    VALUES('The Catcher and the Rye', 'J.D. Salinger');
 
 /*
     insert user
 */ 
 INSERT INTO user(first_name, last_name) 
-    VALUES('Jone', 'Scott');
+    VALUES('Michel', 'Robert');
 
 INSERT INTO user(first_name, last_name)
-    VALUES('Brian', 'Labkin');
+    VALUES('Dav', 'Rrcard');
 
 INSERT INTO user(first_name, last_name)
-    VALUES('Rawol', 'Gomzalez');
+    VALUES('Tome', 'Bab');
 
 /*
     insert wishlist records 
 */
 INSERT INTO wishlist(user_id, book_id) 
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Jone'), 
-        (SELECT book_id FROM book WHERE book_name = 'Are You There, Vodka')
+        (SELECT user_id FROM user WHERE first_name = 'Michel'), 
+        (SELECT book_id FROM book WHERE book_name = 'The Four Winds')
     );
 
 INSERT INTO wishlist(user_id, book_id)
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Brian'),
-        (SELECT book_id FROM book WHERE book_name = 'Everything I Never Told You')
+        (SELECT user_id FROM user WHERE first_name = 'Dav'),
+        (SELECT book_id FROM book WHERE book_name = 'The Hill We Climb')
     );
 
 INSERT INTO wishlist(user_id, book_id)
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Rawol'),
-        (SELECT book_id FROM book WHERE book_name = 'Do Androids Dream of Electric Sheep')
+        (SELECT user_id FROM user WHERE first_name = 'Tome'),
+        (SELECT book_id FROM book WHERE book_name = 'Ocean Prey')
     );
